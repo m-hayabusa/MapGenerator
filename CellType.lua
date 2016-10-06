@@ -1,5 +1,5 @@
 debug.Load("CellType")
-CellType = {}
+module( "CellType", package.seeall )
 
 require ("CellType/Sea")
 require ("CellType/Land")

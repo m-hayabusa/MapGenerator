@@ -1,5 +1,5 @@
 debug.Load("generator.height")
-generator.height = function()
+height = function()
   debug.Exec("generator.height()")
 
   mapping = function(j_x, j_y, i)

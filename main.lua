@@ -1,5 +1,11 @@
 #!/usr/bin/lua
 
+require "common/debugMsg"
+debug.Load("main.lua")
+require("CellType")
+require("generator/main")
+
+
 init = function ()
   World = {}
   World.size = 32                       -- 01 ~ メモリとディスプレイサイズが許す限り
@@ -9,33 +15,7 @@ init = function ()
   raitoHeightColor = 15
   viewmode = 3 -- 1:IDのみ 2:ANSIカラー 3:24ビットカラー 4:ANSIカラー+高さ 5:24ビットカラー+高さ
   debugmode = true
-  debug = {
-    Msg = function(str)
-      if debugmode then
-        print("\x1b[47m\x1b[30m".."Info:".."\x1b[49m\x1b[39m "..str)
-      end
-    end,
-    Load = function(str)
-      if debugmode then
-        print("\x1b[47m\x1b[30m".."Load:".."\x1b[49m\x1b[39m "..str)
-      end
-    end,
-    Exec = function(str)
-      if debugmode then
-        print("\x1b[47m\x1b[30m".."Exec:".."\x1b[49m\x1b[39m "..str)
-      end
-    end,
-    Complate  = function(str)
-      if debugmode then
-        print("\x1b[47m\x1b[30m".."Comp:".."\x1b[49m\x1b[39m "..str)
-      end
-    end,
-    ComplateOW = function(str)
-      if debugmode then
-        io.write("\r\x1b[47m\x1b[30m".."Comp:".."\x1b[49m\x1b[39m "..str)
-      end
-    end,
-  }
+
   if debugmode then debug.Msg("I'm in debugmode.") end
   randseed = 1
   randomizer = function(raito, a, b)
@@ -49,10 +29,6 @@ init = function ()
   end
 end
 init()
-
-debug.Load("main.lua")
-require("CellType")
-require("generator/main")
 
 
 viewer = function ()

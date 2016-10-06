@@ -1,5 +1,5 @@
 debug.Load("CellType.Land")
-CellType.Land = {
+Land = {
   ID = 16,
   Color = {r = 0, g = 127, b = 0, ANSI = 3},
   MinHeight = 1,

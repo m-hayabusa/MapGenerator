@@ -1,8 +1,10 @@
 debug.Load("generator")
-generator = {}
+module( "generator", package.seeall )
+
 require("generator/smoothing")
 require("generator/height")
-generator.main = function ()
+
+main = function ()
   debug.Exec("generator.main()")
   World.Map = {}
   -- ベースとなるマップを乱数で生成

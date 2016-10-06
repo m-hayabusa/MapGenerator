@@ -1,4 +1,4 @@
-generator.smoothing = function()
+smoothing = function()
   debug.Exec("generator.smoothing()")
   -- 周辺のセルのIDを確認､そのIDのセルの個数に対応する確率でそのIDに変化するように
   for i = 1, World.SmoothingTime do

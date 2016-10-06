@@ -1,5 +1,5 @@
 debug.Load("CellType.Sea")
-CellType.Sea = {
+Sea = {
   ID = 01,
   Color = {r = 0,g = 0, b = 200, ANSI = 4},
   MinHeight = 0,

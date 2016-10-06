@@ -1,5 +1,5 @@
 debug.Load("CellType.Mountains")
-CellType.Mountains = {
+Mountains = {
   ID = 17,
   Color = {r = 0, g = 255, b = 0, ANSI = 7},
   MinHeight = 2,
