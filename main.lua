@@ -27,9 +27,9 @@ init = function ()
   require("generator/main")
   require("viewer")
 end
-init()
 
 function main()
+  init()
   generator.main()
   viewer.main()
 end
