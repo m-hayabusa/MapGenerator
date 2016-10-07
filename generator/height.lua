@@ -2,7 +2,7 @@ debug.Load("generator.height")
 height = function()
   debug.Exec("generator.height()")
 
-  mapping = function(j_x, j_y, i)
+  local mapping = function(j_x, j_y, i)
     if not (j_x < 1+1 or j_x > World.size-1 or j_y < 1+1 or j_y > World.size-1) then
       if i == 1
       and World.Map[j_x +1][j_y].Type == CellType.Sea
