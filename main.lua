@@ -2,16 +2,12 @@
 
 require "common/debugMsg"
 debug.Load("main.lua")
-require("CellType")
-require("generator/main")
-
 
 init = function ()
   World = {}
   World.size = 32                       -- 01 ~ メモリとディスプレイサイズが許す限り
-  World.SeaRaito = 9.99                    -- 00 ~ 10
-  World.raitoZeroHeightCellCount = 10  -- 00 ~ 10
-  World.SmoothingTime = 15              -- 00 ~ CPUと時間が許す限り
+  World.Mode = 2              -- 1:Default 2:Mountains 3:Islands
+
   raitoHeightColor = 15
   viewmode = 3 -- 1:IDのみ 2:ANSIカラー 3:24ビットカラー 4:ANSIカラー+高さ 5:24ビットカラー+高さ
   debugmode = true
@@ -27,6 +23,10 @@ init = function ()
       return b
     end
   end
+
+  require("CellType")
+  require("WorldType")
+  require("generator/main")
 end
 init()
 
