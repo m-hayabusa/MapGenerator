@@ -1,6 +1,11 @@
 smoothing = function()
   debug.Exec("generator.smoothing()")
   -- 周辺のセルのIDを確認､そのIDのセルの個数に対応する確率でそのIDに変化するように
+
+  if World.SmoothingMode <= 4 then
+      generator.terrain()
+  end
+
   for i = 1, World.SmoothingTime do
     for i_x = 1, World.size do
       for i_y = 1, World.size do
@@ -46,9 +51,34 @@ smoothing = function()
             end
         end
 
-        World.Map[i_x][i_y].Type = random.main(ZeroHeightCellCount /4 *World.raitoZeroHeightCellCount, CellType.Sea, CellType.Land)
+        if World.SmoothingMode <= 4 then
+            World.Map[i_x][i_y].Type = random.main(ZeroHeightCellCount / 4 * World.raitoZeroHeightCellCount, CellType.Sea, CellType.Land)
+        end
+
+        if World.SmoothingMode == 5 then
+            local countSea = 0
+            for j_x = i_x-1, i_x+1 do
+                for j_y = i_y-1, i_y+1 do -- 範囲外マップまで参照するため
+                    if not World.Map[j_x] then
+                        World.Map[j_x] = {}  -- ここで範囲外のマップを
+                    end
+                    if not World.Map[j_x][j_y] then
+                        World.Map[j_x][j_y] = {}
+                        World.Map[j_x][j_y].Type = CellType.Sea -- 海に設定する
+                    end
+
+                    if World.Map[j_x][j_y].Type == CellType.Sea then
+                        countSea = countSea + 1 -- i_X,i_yの近くの海の個数を数えて
+                    end
+                end
+            end
+            World.Map[i_x][i_y].Type = random.main(countSea * World.SeaRaito /10, CellType.Sea, CellType.Land)
+            -- 確率で海を設定する
+        end
+        debug.ComplateOW("generator.smoothing() "..i.."/"..World.SmoothingTime.." "..i_x..', '..i_y)
       end
     end
+
     debug.ComplateOW("generator.smoothing() "..i ..'/'..World.SmoothingTime)
     if i == World.SmoothingTime then io.write('\n') end
   end

@@ -8,7 +8,7 @@
 
 debug.Load("WorldType:Default")
 
-World.SeaRaito = 9.99                    -- 00 ~ 10
+World.SeaRaito = 10                    -- 00 ~ 10 + n
 World.raitoZeroHeightCellCount = 10  -- 00 ~ 10
-World.SmoothingTime = 13              -- 00 ~ CPUと時間が許す限り
-World.SmoothingMode = 1               -- 1:上下左右参照 2: 3x3参照
+World.SmoothingTime = 4              -- 00 ~ CPUと時間が許す限り
+World.SmoothingMode = 5               -- 1:上下左右参照 2:3x3参照 3・4:1・2の後に
