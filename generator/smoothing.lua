@@ -46,7 +46,7 @@ smoothing = function()
             end
         end
 
-        World.Map[i_x][i_y].Type = randomizer(ZeroHeightCellCount /4 *World.raitoZeroHeightCellCount, CellType.Sea, CellType.Land)
+        World.Map[i_x][i_y].Type = random.main(ZeroHeightCellCount /4 *World.raitoZeroHeightCellCount, CellType.Sea, CellType.Land)
       end
     end
     debug.ComplateOW("generator.smoothing() "..i ..'/'..World.SmoothingTime)

@@ -12,7 +12,7 @@ main = function ()
     World.Map[i_x] = {}
     for i_y = 1, World.size do
       World.Map[i_x][i_y] = {
-        Type = randomizer(World.SeaRaito, CellType.Sea, CellType.Land),
+        Type = random.main(World.SeaRaito, CellType.Sea, CellType.Land),
       }
     end
   end
