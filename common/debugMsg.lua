@@ -37,3 +37,9 @@ ComplateOW = function(str)
         io.write("\r\x1b[47m\x1b[30m".."Comp:".."\x1b[49m\x1b[39m "..str)
     end
 end
+
+Test = function(str)
+    if debugmode then
+        print("\x1b[49m\x1b[39m".."Test:".."\x1b[47m\x1b[30m"..str.."\x1b[49m\x1b[39m")
+    end
+end
