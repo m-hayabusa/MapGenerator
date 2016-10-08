@@ -18,4 +18,3 @@ main = function(raito, a, b)
         return b
     end
 end
-
